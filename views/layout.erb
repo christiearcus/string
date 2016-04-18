@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hello World</title>
+  <link rel='stylesheet' href='/stylesheets/main.css'>
+</head>
+<body>
+
+  <div class="login-info">
+    <% if logged_in? %>
+        <p>logged in as <%= current_user.email_address %></p>
+        <form action="/session/logout" method="post">
+          <input type="hidden" value="delete" name="_method">
+          <button>Logout</button>
+        </form>
+
+      <% else %>
+
+        <form action="/session/new" method="get">
+          <button>Login</button>
+        </form>
+
+      <% end %>
+  </div>
+  <%= yield %>
+
+</body>
