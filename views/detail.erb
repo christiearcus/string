@@ -1,13 +1,14 @@
-<h1>Trip dashboard</h1>
+<h1><%= @trip_detail.name %></h1>
 
 <h2>Total to spend today</h2>
-
-<h3>Add expense</h3>
+<h2>Add expense</h2>
 
 <h3>Days Left</h3>
-<h3>Total Budget Left</h3>
+<h3>Total Budget Left: $<%= @trip_detail.budget %></h3>
 
 
-<form action="/edit" method="get">
+<form action="/edit/<%= @trip_detail.id %>" method="get">
   <button>Edit trip</button>
 </form>
+
+ <a href="/trips/<%=session[:user_id]%>">Back to trips</a>

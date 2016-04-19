@@ -14,11 +14,11 @@ create table trips (
   name varchar(200),
   trip_start date,
   trip_end date,
-  budget decimal,
+  budget decimal(8,3),
   user_id integer
 );
+#done
 
-#see gist for unanswered questions.
 
 create table expenses (
   id serial4 primary key,

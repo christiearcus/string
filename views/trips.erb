@@ -1,10 +1,14 @@
 <h1>Your trips</h1>
 
+  <% @trips.each do |trip| %>
+  <div>
+    <a href="/detail/<%= trip.id %>">
+      <%= trip.name %>
+    </a>
+    <%= trip.trip_start %>
+  </div>
+  <% end %>
+
 <form action="/new" method="get">
   <button>Add new trip</button>
-</form>
-
-
-<form action="/detail" method="get">
-  <button>Go to trip</button>
 </form>
