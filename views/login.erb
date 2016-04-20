@@ -1,13 +1,19 @@
 <h1>Login</h1>
 
-<form action="/session/new" method="post">
+<div class="clearfix form">
 
-  <label>Email</label>
-  <input type="text" name="email" value="">
+  <div class="col col-12">
+  <form action="/session/new" method="post">
+    <label>Email</label>
+    <input type="text" name="email" value="">
+  </div>
 
-  <label>Password</label>
-  <input type="password" name="password" value="">
+  <div class="col col-12">
+    <label>Password</label>
+    <input type="password" name="password" value="">
 
-  <button>Login</button>
-
-</form>
+    <div class="col col-12">
+      <button class="hero-btn">Login</button>
+    </div>
+  </form>
+</div>

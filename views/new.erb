@@ -1,19 +1,26 @@
 <h1>Add a trip</h1>
 
-<form action="/new" method="post">
+<a href="/trips/<%= session[:user_id] %>">Back to trips</a>
 
-  <label>Trip name</label>
-  <input type="text" name="tripname" value="">
+<div class="clearfix form">
+  <form action="/new" method="post">
 
-  <label>Start date</label>
-  <input type="text" name="start" value="e.g. 08-Jan-2016">
+    <label>Trip name</label>
+    <input type="text" name="tripname" value="">
 
-  <label>End date</label>
-  <input type="text" name="end" value="e.g. 22-Mar-2016">
+    <label>Start date</label>
+    <input type="date" name="start" value="e.g. 08-Jan-2016">
 
-  <label>Budget</label>
-  <input type="text" name="budget" value="">
+    <label>End date</label>
+    <input type="date" name="end" value="e.g. 22-Mar-2016">
 
-  <button>Create!</button>
+    <label>Duration (Hardcoded)</label>
+    <input type="text" name="duration" value="">
 
-</form>
+    <label>Budget</label>
+    <input type="text" name="budget" value="">
+
+    <button class="hero-btn">Create!</button>
+
+  </form>
+</div>

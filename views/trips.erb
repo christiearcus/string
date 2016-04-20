@@ -1,14 +1,17 @@
 <h1>Your trips</h1>
 
+<div class="trips-container">
   <% @trips.each do |trip| %>
-  <div>
-    <a href="/detail/<%= trip.id %>">
-      <%= trip.name %>
-    </a>
-    <%= trip.trip_start %>
+  <div class="trip-item">
+    <form action="/detail/<%= trip.id %>" method="get">
+      <button class="logout"><%= trip.name %></button>
+    </form>
   </div>
   <% end %>
+</div>
 
-<form action="/new" method="get">
-  <button>Add new trip</button>
-</form>
+<div class="new">
+  <form action="/new" method="get">
+    <button class="hero-btn">Add new trip</button>
+  </form>
+</div>

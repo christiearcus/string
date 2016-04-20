@@ -2,33 +2,46 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Bum bag</title>
+  <title>String</title>
   <link rel='stylesheet' href='/stylesheets/main.css'>
-  <link rel='stylesheet' href='/stylesheets/normalize.css'>
+  <link rel='stylesheet' href='/stylesheets/basscss.min.css'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 </head>
 <body>
 
-  <div class="login-info">
+<div class="page-wrapper">
+  <nav>
     <% if logged_in? %>
-        <p>logged in as <%= current_user.email_address %></p>
-        <form action="/session/logout" method="post">
-          <input type="hidden" value="delete" name="_method">
-          <button>Logout</button>
-        </form>
-
+    <form action="/session/logout" method="post">
+      <button class="logout">Logout</button>
+    </form>
+      <img class="logo" src="/assets/logo-large.png" alt="" />
+      <p>Logged in as <%= current_user.first_name %></p>
       <% else %>
-
-        <form action="/session/new" method="get">
-          <button>Login</button>
-        </form>
-
+            <img class="logo" src="/assets/logo-large.png" alt="" />
+            <a href="/session/new">Login</a>
+            <a href="/session/sign-up">Sign up</a>
       <% end %>
+  </nav>
+  <div class="clear"></div>
 
-      <form action="/sign-up" method="get">
-        <button>Sign up</button>
-      </form>
-
+  <div class="content">
+    <%= yield %>
   </div>
-  <%= yield %>
+<!-- 
+<div class="footer">
+  <footer>
+    <p>
+      Christie Metson 2016
+    </p>
+    <p>
+      General Assembly Project Two
+    </p>
+  </footer>
+</div> -->
+
+
+</div> <!-- end of page wrapper div  -->
 
 </body>

@@ -1,14 +1,16 @@
 <h1><%= @trip_detail.name %></h1>
 
-<h2>Total to spend today</h2>
-<h2>Add expense</h2>
+<p>Total to spend today: $<%= @daily_budget %></p>
+<p>Days Left: <%= @trip_detail.duration %></p>
+<p>Total Budget Left: $<%= @trip_detail.budget %> </p>
 
-<h3>Days Left</h3>
-<h3>Total Budget Left: $<%= @trip_detail.budget %></h3>
-
+<form action="/detail/<%= @trip_detail.id %>/newexpense" method="get">
+  <button class="hero-btn">Add expense</button>
+</form>
 
 <form action="/edit/<%= @trip_detail.id %>" method="get">
-  <button>Edit trip</button>
+  <button class="hero-btn">Edit trip</button>
 </form>
+<br>
 
  <a href="/trips/<%=session[:user_id]%>">Back to trips</a>

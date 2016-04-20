@@ -1,0 +1,15 @@
+<h1>Add an expense item</h1>
+
+<form class="clearfix form" action="/detail/<%= @trip_detail.id %>/newexpense" method="post">
+
+  <label>Amount</label>
+  <input type="text" name="amount" value="">
+
+  <label>Description</label>
+  <input type="text" name="note" value="">
+
+  <button class="hero-btn">Submit</button>
+
+</form>
+
+<a href="/detail/<%= @trip_detail.id %>">Back to <%= @trip_detail.name %></a>

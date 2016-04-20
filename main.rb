@@ -2,33 +2,12 @@ require 'sinatra'
 require 'sinatra/reloader'
 require 'pry'
 require './db_config'
+require './helpers/helper'
 require './models/user'
 require './models/trip'
+require './models/expense'
 
 enable :sessions
-
-helpers do
-  def current_user
-    User.find_by(id: session[:user_id])
-    # => returns whole user object (not just id)
-  end
-
-  def logged_in?
-     !!current_user
-     # => returns true if logged in
-  end
-
-  def find_trip
-    Trip.find_by(id: params[:id])
-    # => returns trip id
-  end
-
-  def find_user_trips
-    Trip.where(user_id: current_user.id)
-    # => finds all user trips
-  end
-
-end
 
 get '/' do
   if logged_in?
@@ -56,14 +35,9 @@ post '/session/new' do
     end
 end
 
-#new user sign-up
 post '/sign-up' do
-  user = User.new
-  user.first_name = params[:firstname]
-  user.last_name = params[:lastname]
-  user.email_address = params[:email]
-  user.password = params[:password]
-  user.save
+  #user sign up helper method
+  sign_up_user
   #find in database (don't yet have current_user)
   new_user = User.find_by(email_address: params[:email])
   #set session id for the helper method.
@@ -82,28 +56,52 @@ get '/new' do
 end
 
 post '/new' do
-  trip = Trip.new
-  trip.name = params[:tripname]
-  trip.trip_start = params[:start]
-  trip.trip_end = params[:end]
-  trip.budget = params[:budget]
-  trip.user_id = current_user.id
-  trip.save
-  redirect to "/detail/#{trip.id}"
+  #call new trip method, which returns trip.id
+  trip = new_trip
+  redirect to "/detail/#{trip}"
 end
 
-delete '/session/logout' do
+post '/session/logout' do
   session[:user_id] = nil
   redirect to '/'
 end
 
-get '/sign-up' do
+get '/session/sign-up' do
   erb :signup
 end
 
 get '/detail/:id' do
   @trip_detail = find_trip
+  @daily_budget = @trip_detail.budget / @trip_detail.duration
   erb :detail
+end
+
+get '/detail/:id/newexpense' do
+  @trip_detail = find_trip
+  erb :expense
+end
+
+
+post '/detail/:id/newexpense' do
+  @trip_detail = find_trip
+  trip_user = current_user
+
+  #create new expense for trip (for trip's first expense)
+  expense = Expense.new
+  expense.trip_id = @trip_detail.id
+  expense.user_id = current_user.id
+  expense.amount = params[:amount]
+  expense.description = params[:note]
+  expense.new_budget_amount = @trip_detail.budget - params[:amount].to_i
+  expense.save
+
+  #deduct from trip budget
+  update = Trip.find_by(id: @trip_detail.id)
+  update.budget = update.budget - expense.amount
+  update.save
+
+  #need subsequent expense
+  redirect to '/'
 end
 
 get '/edit/:id' do
@@ -112,17 +110,11 @@ get '/edit/:id' do
 end
 
 put '/edit/:id' do
-  @trip_edit = find_trip
-  @trip_edit.trip_start = params[:start]
-  @trip_edit.trip_end = params[:end]
-  @trip_edit.budget = params[:budget]
-  @trip_edit.save
-
-  redirect to "/detail/#{@trip_edit.id}"
+  trip_edit = edit_trip
+  redirect to "/detail/#{trip_edit}"
 end
 
 delete '/delete/:id' do
-  @trip_delete = find_trip
-  @trip_delete.destroy
+  delete_trip
   redirect to "/trips/#{session[:user_id]}"
 end
