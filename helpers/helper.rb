@@ -24,8 +24,17 @@ helpers do
     user = User.new
     user.first_name = params[:firstname]
     user.last_name = params[:lastname]
-    user.email_address = params[:email]
     user.password = params[:password]
+    user.email_address = params[:email]
+    #
+    # email = User.select()
+    #
+    # email.each do |email|
+    #   if
+    #
+    # end
+    #
+
     user.save
   end
 
@@ -53,6 +62,23 @@ helpers do
   def delete_trip
     trip_delete = find_trip
     trip_delete.destroy
+  end
+
+  def log_expense
+    # log expense to database
+    expense = Expense.new
+    @trip_detail = find_trip
+    expense.trip_id = @trip_detail.id
+    expense.user_id = current_user.id
+    expense.amount = params[:amount]
+    expense.description = params[:note]
+    expense.new_budget_amount = @trip_detail.budget - params[:amount].to_i
+    expense.save
+
+    #deduct from master trip total
+    update = Trip.find_by(id: @trip_detail.id)
+    update.budget = update.budget - expense.amount
+    update.save
   end
 
 end

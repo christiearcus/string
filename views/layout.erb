@@ -16,10 +16,10 @@
     <form action="/session/logout" method="post">
       <button class="logout">Logout</button>
     </form>
-      <img class="logo" src="/assets/logo-large.png" alt="" />
+      <img class="logo" src="/assets/logo-large.png">
       <p>Logged in as <%= current_user.first_name %></p>
       <% else %>
-            <img class="logo" src="/assets/logo-large.png" alt="" />
+            <img class="logo" src="/assets/logo-large.png">
             <a href="/session/new">Login</a>
             <a href="/session/sign-up">Sign up</a>
       <% end %>
@@ -29,7 +29,7 @@
   <div class="content">
     <%= yield %>
   </div>
-<!-- 
+<!--
 <div class="footer">
   <footer>
     <p>

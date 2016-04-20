@@ -84,24 +84,8 @@ end
 
 post '/detail/:id/newexpense' do
   @trip_detail = find_trip
-  trip_user = current_user
-
-  #create new expense for trip (for trip's first expense)
-  expense = Expense.new
-  expense.trip_id = @trip_detail.id
-  expense.user_id = current_user.id
-  expense.amount = params[:amount]
-  expense.description = params[:note]
-  expense.new_budget_amount = @trip_detail.budget - params[:amount].to_i
-  expense.save
-
-  #deduct from trip budget
-  update = Trip.find_by(id: @trip_detail.id)
-  update.budget = update.budget - expense.amount
-  update.save
-
-  #need subsequent expense
-  redirect to '/'
+  log_expense
+  redirect to "/detail/#{@trip_detail.id}"
 end
 
 get '/edit/:id' do
