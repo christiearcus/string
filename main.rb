@@ -61,7 +61,7 @@ post '/new' do
   redirect to "/detail/#{trip}"
 end
 
-post '/session/logout' do
+get '/session/logout' do
   session[:user_id] = nil
   redirect to '/'
 end

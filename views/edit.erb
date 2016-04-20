@@ -1,4 +1,4 @@
-<h1>Edit <%= @trip_edit.name %></h1>
+<h1 class="center-align">Edit <%= @trip_edit.name %></h1>
 
 <a href="/detail/<%= @trip_edit.id %>">Cancel</a>
 
@@ -14,13 +14,13 @@
   <label>Edit budget</label>
   <input type="text" name="budget" value="<%= @trip_edit.budget %>">
 
-  <button class="hero-btn">Edit</button>
+  <button class="waves-effect indigo lighten-3 btn-large">Edit</button>
 
 </form>
 
 <form action="/delete/<%= @trip_edit.id %>" method="post">
 
   <input type="hidden" value="delete" name="_method">
-  <button class="hero-btn">Delete trip</button><br>
+  <button class="waves-effect indigo lighten-3 btn-large">Delete trip</button><br>
 
 </form>

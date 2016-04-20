@@ -1,4 +1,4 @@
-<h1><%= @trip_object.name %></h1>
+<h1 class="center-align"><%= @trip_object.name %></h1>
 
 
 <h3>Date Details</h3>
@@ -13,11 +13,11 @@
 
 
 <form action="/detail/<%= @trip_object.id %>/newexpense" method="get">
-  <button class="hero-btn">Add expense</button>
+  <button class="waves-effect indigo lighten-3 btn-large">Add expense</button>
 </form>
 
 <form action="/edit/<%= @trip_object.id %>" method="get">
-  <button class="hero-btn">Edit trip</button>
+  <button class="waves-effect indigo lighten-3 btn-large">Edit trip</button>
 </form>
 <br>
 

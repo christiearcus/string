@@ -3,45 +3,47 @@
 <head>
   <meta charset="UTF-8">
   <title>String</title>
-  <link rel='stylesheet' href='/stylesheets/main.css'>
-  <link rel='stylesheet' href='/stylesheets/basscss.min.css'>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel='stylesheet' href='/stylesheets/main.css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
 
 </head>
-<body>
+  <body>
+      <nav class="indigo lighten-4" role="navigation">
+        <div class="nav-wrapper container">
+          <a href="/" class="brand-logo left">Shoestring</a>
+          <% if logged_in? %>
 
-<div class="page-wrapper">
-  <nav>
-    <% if logged_in? %>
-    <form action="/session/logout" method="post">
-      <button class="logout">Logout</button>
-    </form>
-      <img class="logo" src="/assets/logo-large.png">
-      <p>Logged in as <%= current_user.first_name %></p>
-      <% else %>
-            <img class="logo" src="/assets/logo-large.png">
+          <ul class="right">
+            <li>
+              <a href="/session/logout" class="waves-effect indigo lighten-3 btn">Logout</a>
+            </li>
+            <li>
+              <a class="">Logged in as <%= current_user.first_name %></a>
+            </li>
+          </ul>
+
+        <% else %>
+
+        <ul class="right">
+          <li>
             <a href="/session/new">Login</a>
+          </li>
+          <li>
             <a href="/session/sign-up">Sign up</a>
-      <% end %>
-  </nav>
-  <div class="clear"></div>
+          </li>
+        </ul>
 
-  <div class="content">
-    <%= yield %>
-  </div>
-<!--
-<div class="footer">
-  <footer>
-    <p>
-      Christie Metson 2016
-    </p>
-    <p>
-      General Assembly Project Two
-    </p>
-  </footer>
-</div> -->
+            <% end %>
+        </div>
+      </nav>
 
+      <div class="container">
+        <%= yield %>
+      </div> <!-- end of container div -->
 
-</div> <!-- end of page wrapper div  -->
-
-</body>
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+  </body>
+</html>

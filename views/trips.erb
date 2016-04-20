@@ -1,17 +1,36 @@
-<h1>Your trips</h1>
+<h1 class="center-align">Your trips</h1>
 
-<div class="trips-container">
+<div>
   <% @trips.each do |trip| %>
-  <div class="trip-item">
-    <form action="/detail/<%= trip.id %>" method="get">
-      <button class="logout"><%= trip.name %></button>
-    </form>
+  <div class="card">
+    <div class="card-image">
+
+    </div>
+      <a href="/detail/<%= trip.id %>"><%= trip.name %></a>
   </div>
   <% end %>
 </div>
 
-<div class="new">
+<div>
   <form action="/new" method="get">
-    <button class="hero-btn">Add new trip</button>
+    <button class="waves-effect indigo lighten-3 btn-large">Add new trip</button>
   </form>
 </div>
+
+
+<div class="row">
+        <div class="col s12 m7">
+          <div class="card">
+            <div class="card-image">
+              <span class="card-title">Card Title</span>
+            </div>
+            <div class="card-content">
+              <p>I am a very simple card. I am good at containing small bits of information.
+              I am convenient because I require little markup to use effectively.</p>
+            </div>
+            <div class="card-action">
+              <a href="#">This is a link</a>
+            </div>
+          </div>
+        </div>
+      </div>
