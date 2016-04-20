@@ -1,14 +1,22 @@
-<h1><%= @trip_detail.name %></h1>
+<h1><%= @trip_object.name %></h1>
 
-<p>Total to spend today: $<%= @daily_budget %></p>
-<p>Days Left: <%= @trip_detail.duration %></p>
-<p>Total Budget Left: $<%= @trip_detail.budget %> </p>
 
-<form action="/detail/<%= @trip_detail.id %>/newexpense" method="get">
+<h3>Date Details</h3>
+<p>Trip length: <%= @trip_length %></p>
+<p>Days Left in trip: <%= @day_of_trip %></p>
+
+<h3>Budget Details</h3>
+<p>Original budget: <%= @total_budget %></p>
+<p>Balance: <%= @balance %></p>
+<p>Daily Allowance: <%= @daily_amount %></p>
+
+
+
+<form action="/detail/<%= @trip_object.id %>/newexpense" method="get">
   <button class="hero-btn">Add expense</button>
 </form>
 
-<form action="/edit/<%= @trip_detail.id %>" method="get">
+<form action="/edit/<%= @trip_object.id %>" method="get">
   <button class="hero-btn">Edit trip</button>
 </form>
 <br>

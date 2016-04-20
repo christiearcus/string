@@ -71,8 +71,17 @@ get '/session/sign-up' do
 end
 
 get '/detail/:id' do
-  @trip_detail = find_trip
-  @daily_budget = @trip_detail.budget / @trip_detail.duration
+  @trip_object = find_trip
+  #find financial details
+  @balance = @trip_object.budget # => 5,000
+  @total_budget = @trip_object.og_budget # => 20,000
+  #find time stuff
+  @trip_length = @trip_object.trip_end - @trip_object.trip_start
+  @trip_length = @trip_length / 60 / 60 / 24
+  @day_of_trip = @trip_object.trip_end - Time.now
+  @day_of_trip = @day_of_trip / 60 / 60 / 24
+  #daily amount
+  @daily_amount = @balance / @day_of_trip
   erb :detail
 end
 

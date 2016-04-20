@@ -25,16 +25,8 @@ helpers do
     user.first_name = params[:firstname]
     user.last_name = params[:lastname]
     user.password = params[:password]
+    #uniqueness
     user.email_address = params[:email]
-    #
-    # email = User.select()
-    #
-    # email.each do |email|
-    #   if
-    #
-    # end
-    #
-
     user.save
   end
 
@@ -44,10 +36,27 @@ helpers do
     trip.trip_start = params[:start]
     trip.trip_end = params[:end]
     trip.duration = params[:duration]
+    trip.og_budget = params[:budget]
     trip.budget = params[:budget]
     trip.user_id = current_user.id
     trip.save
       return trip.id
+  end
+
+#not finished yet.
+  def trip_detail
+    @trip_object = find_trip
+
+    #find financial details
+    @balance = @trip_object.budget # => 5,000
+    @total_budget = @trip_object.og_budget # => 20,000
+
+    #find time stuff
+    @day_of_trip = @trip_object.trip_end - Time.now
+    @day_of_trip = @day_of_trip / 60 / 60 / 24 # => 30 days
+
+    #push all in to an object & return.
+    return
   end
 
   def edit_trip
