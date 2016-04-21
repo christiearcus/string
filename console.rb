@@ -5,5 +5,3 @@ require './models/trip'
 require './models/expense'
 
 ActiveRecord::Base.logger = Logger.new(STDERR)
-
-binding.pry

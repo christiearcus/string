@@ -7,7 +7,6 @@ create table users (
   email_address varchar(300) not null,
   password_digest varchar(400)
 );
-#done
 
 create table trips (
   id serial4 primary key,
@@ -18,7 +17,6 @@ create table trips (
   budget integer,
   user_id integer
 );
-#done
 
 create table expenses (
   id serial4 primary key,
