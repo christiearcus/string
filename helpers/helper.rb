@@ -61,6 +61,7 @@ helpers do
 
   def edit_trip
     trip_edit = find_trip
+    trip_edit.name = params[:name]
     trip_edit.trip_start = params[:start]
     trip_edit.trip_end = params[:end]
     trip_edit.budget = params[:budget]

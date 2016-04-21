@@ -1,6 +1,18 @@
 body {
   font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Helvetica,sans-serif;
-  background: #DBC7BE;
+  background: linear-gradient(#E0D8DE, white) no-repeat;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+
+main {
+  flex: 1 0 auto;
+}
+
+.logo {
+  font-family: 'Arvo', serif;
 }
 
 .header {
@@ -18,4 +30,8 @@ nav {
 
 #home-btn {
   margin: 3em 1em 3em 1em;
+}
+
+.change-inline {
+  display: inline-block;
 }

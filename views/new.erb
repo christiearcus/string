@@ -1,26 +1,28 @@
 <h1 class="header center-align">Add a trip</h1>
 
-<a href="/trips/<%= session[:user_id] %>">Back to trips</a>
+<div class="row">
+  <div class="col s12">
+    <form action="/new" method="post">
 
-<div>
-  <form action="/new" method="post">
+      <label>Trip name</label>
+      <input type="text" name="tripname" value="">
 
-    <label>Trip name</label>
-    <input type="text" name="tripname" value="">
+      <label>Start date</label>
+      <input type="date" name="start" value="e.g. 08-Jan-2016">
 
-    <label>Start date</label>
-    <input type="date" name="start" value="e.g. 08-Jan-2016">
+      <label>End date</label>
+      <input type="date" name="end" value="e.g. 22-Mar-2016">
 
-    <label>End date</label>
-    <input type="date" name="end" value="e.g. 22-Mar-2016">
+      <label>Budget</label>
+      <input type="text" name="budget" value="">
 
-    <label>Duration (Hardcoded)</label>
-    <input type="text" name="duration" value="">
+      <button class="waves-effect blue-grey darken-3 btn-large">Create!</button>
 
-    <label>Budget</label>
-    <input type="text" name="budget" value="">
+    </form>
+  </div>
 
-    <button class="waves-effect indigo lighten-3 btn-large">Create!</button>
-
-  </form>
 </div>
+
+
+
+  <a class="change-inline waves-effect blue-grey darken-3 btn-large" href="/trips/<%= session[:user_id] %>">Back to trips</a>

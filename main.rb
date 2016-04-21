@@ -78,10 +78,13 @@ get '/detail/:id' do
   #find time stuff
   @trip_length = @trip_object.trip_end - @trip_object.trip_start
   @trip_length = @trip_length / 60 / 60 / 24
-  @day_of_trip = @trip_object.trip_end - Time.now
-  @day_of_trip = @day_of_trip / 60 / 60 / 24
+  @days_left = @trip_object.trip_end - Time.now
+  @days_left = @days_left / 60 / 60 / 24
   #daily amount
-  @daily_amount = @balance / @day_of_trip
+  @daily_amount = @balance / @days_left
+  #present dates nicely
+  @start = @trip_object.trip_start.strftime('%d %b %Y')
+  @end = @trip_object.trip_end.strftime('%d %b %Y')
   erb :detail
 end
 
@@ -99,6 +102,9 @@ end
 
 get '/edit/:id' do
   @trip_edit = find_trip
+  @start_parsed = @trip_edit.trip_start.strftime("%d/%m/%Y")
+  @end_parsed = @trip_edit.trip_end.strftime("%d/%m/%Y")
+
   erb :edit
 end
 
