@@ -1,16 +1,20 @@
-<h1 class="center-align"><%= @trip_object.name %></h1>
+<h1 class="header center-align"><%= @trip_object.name %></h1>
 
 
-<h3>Date Details</h3>
+<h3 class="sub-header">Days left: <%= @day_of_trip %></h3>
+<div class="progress">
+    <div class="determinate" style="width: 70%"></div>
+</div>
+
+<h3 class="sub-header">Budget remaining: <%= @balance %></h3>
+<div class="progress">
+    <div class="determinate" style="width: 50%"></div>
+</div>
+
+
 <p>Trip length: <%= @trip_length %></p>
-<p>Days Left in trip: <%= @day_of_trip %></p>
-
-<h3>Budget Details</h3>
 <p>Original budget: <%= @total_budget %></p>
-<p>Balance: <%= @balance %></p>
 <p>Daily Allowance: <%= @daily_amount %></p>
-
-
 
 <form action="/detail/<%= @trip_object.id %>/newexpense" method="get">
   <button class="waves-effect indigo lighten-3 btn-large">Add expense</button>

@@ -6,38 +6,64 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel='stylesheet' href='/stylesheets/main.css'>
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
 
 </head>
   <body>
-      <nav class="indigo lighten-4" role="navigation">
+      <nav class="N/A transparent" role="navigation">
         <div class="nav-wrapper container">
-          <a href="/" class="brand-logo left">Shoestring</a>
-          <% if logged_in? %>
+          <a href="/" class="black-text brand-logo center">Shoestring</a>
 
-          <ul class="right">
+          <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="black-text material-icons">menu</i></a>
+
+          <!-- movile nav -->
+            <% if logged_in? %>
+            <ul id="mobile-demo" class="side-nav black-text">
+              <li>
+                <a href="/session/logout">Logout</a>
+              </li>
+              <li>
+                <a>Logged in as <%= current_user.first_name %></a>
+              </li>
+            </ul>
+          <% else %>
+          <ul id="mobile-demo" class="side-nav black-text">
             <li>
-              <a href="/session/logout" class="waves-effect indigo lighten-3 btn">Logout</a>
+              <a href="/session/new">Login</a>
             </li>
             <li>
-              <a class="">Logged in as <%= current_user.first_name %></a>
+              <a href="/session/sign-up">Sign up</a>
             </li>
           </ul>
+              <% end %>
 
-        <% else %>
-
-        <ul class="right">
-          <li>
-            <a href="/session/new">Login</a>
-          </li>
-          <li>
-            <a href="/session/sign-up">Sign up</a>
-          </li>
-        </ul>
-
-            <% end %>
+            <!-- Desktop nav -->
+            <% if logged_in? %>
+            <ul class="black-text right hide-on-med-and-down">
+              <li>
+                <a href="/session/logout" class="waves-effect indigo lighten-3 btn">Logout</a>
+              </li>
+              <li>
+                <a class="black-text">Logged in as <%= current_user.first_name %></a>
+              </li>
+            </ul>
+          <% else %>
+          <ul class="right hide-on-med-and-down">
+            <li>
+              <a class="black-text" href="/session/new">Login</a>
+            </li>
+            <li>
+              <a class="black-text" href="/session/sign-up">Sign up</a>
+            </li>
+          </ul>
+              <% end %>
         </div>
+
       </nav>
+
+
+
 
       <div class="container">
         <%= yield %>
@@ -45,5 +71,6 @@
 
       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+      <script src="/javascripts/application.js"></script>
   </body>
 </html>

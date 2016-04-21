@@ -1,6 +1,20 @@
+body {
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Helvetica,sans-serif;
+  background: #DBC7BE;
+}
+
+.header {
+  font-weight: 200;
+}
+
+.sub-header {
+  font-weight: 200;
+}
+
 nav {
   box-shadow: none !important;
 }
+
 
 #home-btn {
   margin: 3em 1em 3em 1em;
