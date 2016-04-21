@@ -36,13 +36,8 @@ post '/session/new' do
 end
 
 post '/sign-up' do
-  #user sign up helper method
   sign_up_user
-  #find in database (don't yet have current_user)
-  new_user = User.find_by(email_address: params[:email])
-  #set session id for the helper method.
-  session[:user_id] = new_user.id
-  redirect to "/trips/#{current_user.id}"
+  #user sign up helper method
 end
 
 #user's trips homepage.

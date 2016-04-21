@@ -25,9 +25,17 @@ helpers do
     user.first_name = params[:firstname]
     user.last_name = params[:lastname]
     user.password = params[:password]
-    #uniqueness
     user.email_address = params[:email]
-    user.save
+      if user.valid?
+        user.save
+        #find in database (don't yet have current_user)
+        new_user = User.find_by(email_address: params[:email])
+        #set session id for the helper method.
+        session[:user_id] = new_user.id
+        redirect to "/trips/#{current_user.id}"
+      else
+        redirect to '/session/sign-up'
+      end
   end
 
   def new_trip
