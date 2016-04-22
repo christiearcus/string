@@ -1,11 +1,9 @@
 require 'sinatra'
-require 'sinatra/reloader'
 require './db_config'
 require './helpers/helper'
 require './models/user'
 require './models/trip'
 require './models/expense'
-require 'pry'
 
 enable :sessions
 
