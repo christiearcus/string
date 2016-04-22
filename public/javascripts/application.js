@@ -2,16 +2,6 @@
 
 $( document ).ready(function(){
   $(".button-collapse").sideNav();
-})
-
-// Date picker
-
-$(function(){
-  $.datepicker.setDefaults(
-    $.extend( $.datepicker.regional[ '' ] )
-  );
-  $( '#datepicker' ).datepicker();
-});
 
 // Budget slider
 
@@ -105,3 +95,5 @@ var timeSlider = function() {
 };
 
 timeSlider();
+
+});
