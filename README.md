@@ -10,12 +10,12 @@ This app is built using Sinatra & Javascript, and has a Postgres database.
 
 ## Where?
 
-[URL]
+https://safe-crag-49961.herokuapp.com/
 
 ## ER Diagram
 
-See string wiki page.
+See string wiki page named 'Shoestring Schema'.
 
 ## Wireframes
 
-[TBC]
+In my notebook!

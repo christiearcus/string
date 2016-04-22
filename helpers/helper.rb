@@ -43,7 +43,6 @@ helpers do
     trip.name = params[:tripname]
     trip.trip_start = params[:start]
     trip.trip_end = params[:end]
-    trip.duration = params[:duration]
     trip.og_budget = params[:budget]
     trip.budget = params[:budget]
     trip.user_id = current_user.id
