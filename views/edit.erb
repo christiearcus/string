@@ -8,7 +8,7 @@
       <input type="hidden" value="put" name="_method">
 
       <label>Edit trip name</label>
-      <input type="text" name="trip-name" value="<%= @trip_edit.name %>">
+      <input type="text" name="name" value="<%= @trip_edit.name %>">
 
       <label>Edit start date</label>
       <input type="text" name="start" value="<%= @start_parsed %>">
@@ -16,8 +16,8 @@
       <label>Edit end date</label>
       <input type="text" name="end" value="<%= @end_parsed %>">
 
-      <label>Edit budget</label>
-      <input type="number" name="budget" value="<%= @trip_edit.budget %>">
+      <label>Reset your budget</label>
+      <input type="number" name="budget" value="<%= @trip_edit.og_budget %>">
 
       <button class="waves-effect blue-grey darken-3 btn-large">Edit</button>
 

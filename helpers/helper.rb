@@ -71,6 +71,7 @@ helpers do
     trip_edit.name = params[:name]
     trip_edit.trip_start = params[:start]
     trip_edit.trip_end = params[:end]
+    trip_edit.og_budget = params[:budget]
     trip_edit.budget = params[:budget]
     trip_edit.save
       return trip_edit.id

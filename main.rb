@@ -65,16 +65,20 @@ end
 
 get '/detail/:id' do
   @trip_object = find_trip
+
   #find financial details
-  @balance = @trip_object.budget # => 5,000
-  @total_budget = @trip_object.og_budget # => 20,000
+  @balance = @trip_object.budget
+  @total_budget = @trip_object.og_budget
+
   #find time stuff
   @trip_length = @trip_object.trip_end - @trip_object.trip_start
   @trip_length = @trip_length / 60 / 60 / 24
   @days_left = @trip_object.trip_end - Time.now
   @days_left = @days_left / 60 / 60 / 24
+
   #daily amount
   @daily_amount = @balance / @days_left
+
   #present dates nicely
   @start = @trip_object.trip_start.strftime('%d %b %Y')
   @end = @trip_object.trip_end.strftime('%d %b %Y')
