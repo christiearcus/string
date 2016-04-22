@@ -19,3 +19,9 @@ See string wiki page named 'Shoestring Schema'.
 ## Wireframes
 
 In my notebook!
+
+## Enhancements
+
+Feel free to add enhancement ideas to my Trello board :)
+
+https://trello.com/b/IcpP0wHL/shoestring
