@@ -14,7 +14,7 @@ This app is built using Sinatra & Javascript, and has a Postgres database.
 
 ## ER Diagram
 
-[TBC]
+See string wiki page.
 
 ## Wireframes
 
