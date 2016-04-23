@@ -1,5 +1,4 @@
 require 'sinatra'
-require 'sinatra/reloader'
 require './db_config'
 require './helpers/helper'
 require './models/user'
