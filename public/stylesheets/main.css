@@ -11,9 +11,9 @@ main {
   flex: 1 0 auto;
 }
 
-/*.logo {
+.logo {
   font-family: 'Arvo', serif;
-}*/
+}
 
 .header {
   font-weight: 200;

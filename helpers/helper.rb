@@ -25,11 +25,11 @@ helpers do
     user.first_name = params[:firstname]
     user.last_name = params[:lastname]
     user.password = params[:password]
-    user.email_address = params[:email]
+    user.email_address = params[:password]
       if user.valid?
         user.save
         #find in database (don't yet have current_user)
-        new_user = User.find_by(email_address: params[:email])
+        new_user = User.find_by(email_address: @downcase_email)
         #set session id for the helper method.
         session[:user_id] = new_user.id
         redirect to "/trips/#{current_user.id}"
@@ -71,8 +71,8 @@ helpers do
     trip_edit.name = params[:name]
     trip_edit.trip_start = params[:start]
     trip_edit.trip_end = params[:end]
-    trip_edit.og_budget = params[:budget]
-    trip_edit.budget = params[:budget]
+    trip_edit.budget = trip_edit.budget
+    trip_edit.og_budget = trip_edit.og_budget
     trip_edit.save
       return trip_edit.id
   end

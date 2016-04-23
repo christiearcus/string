@@ -14,31 +14,31 @@ var slider = function() {
   if (remainder >= 1) {
     budgetSlider.style = 'width: 100%'
   }
-  else if (remainder == 0.9) {
+  else if (remainder >= 0.9) {
     budgetSlider.style = 'width: 90%'
   }
-  else if (remainder == 0.8) {
+  else if (remainder >= 0.8) {
     budgetSlider.style = 'width: 80%'
   }
-  else if (remainder == 0.7) {
+  else if (remainder >= 0.7) {
     budgetSlider.style = 'width: 70%'
   }
-  else if (remainder == 0.6) {
+  else if (remainder >= 0.6) {
     budgetSlider.style = 'width: 60%'
   }
-  else if (remainder == 0.5) {
+  else if (remainder >= 0.5) {
     budgetSlider.style = 'width: 50%'
   }
-  else if (remainder == 0.4) {
+  else if (remainder >= 0.4) {
     budgetSlider.style = 'width: 40%'
   }
-  else if (remainder == 0.3) {
+  else if (remainder >= 0.3) {
     budgetSlider.style = 'width: 30%'
   }
-  else if (remainder == 0.2) {
+  else if (remainder >= 0.2) {
     budgetSlider.style = 'width: 20%'
   }
-  else if (remainder == 0.1) {
+  else if (remainder >= 0.1) {
     budgetSlider.style = 'width: 10%'
   }
   else if (remainder <= 0) {

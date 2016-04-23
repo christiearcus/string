@@ -9,12 +9,12 @@
 
     <p class="sub-header"><span id="days-left"><%= @days_left.to_i %></span> days left in your <span id="duration"><%= @trip_length.to_i %></span> day trip</p>
     <div class="progress">
-        <div id="day-burn" class="determinate" style="width: 70%"></div>
+        <div id="day-burn" class="determinate" style="width: 100%"></div>
     </div>
 
     <p class="sub-header">$<span id="balance"><%= @balance %></span> left of your total $<span id="total-budget"><%= @total_budget %></span> budget </p>
     <div class="progress">
-        <div id="budget-burn" class="determinate" style="width: 50%"></div>
+        <div id="budget-burn" class="determinate" style="width: 100%"></div>
     </div>
   </div>
 
