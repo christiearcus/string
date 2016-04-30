@@ -11,10 +11,10 @@
       <input type="text" name="name" value="<%= @trip_edit.name %>">
 
       <label>Edit start date</label>
-      <input type="text" name="start" value="<%= @start_parsed %>">
+      <input type="date" class="datepicker" name="start" value="<%= @trip_edit.trip_start.strftime("%d %B")%>">
 
       <label>Edit end date</label>
-      <input type="text" name="end" value="<%= @end_parsed %>">
+      <input type="date" class="datepicker" name="end" value=" <%= @trip_edit.trip_end.strftime("%d %B") %>">
 
       <button class="waves-effect blue-grey darken-3 btn-large">Edit</button>
 

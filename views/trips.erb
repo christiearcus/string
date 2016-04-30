@@ -1,29 +1,20 @@
 <h1 class="header center-align">Your trips</h1>
 
-<div class="row">
-
-  <% @trips.each do |trip| %>
-
-  <div class="col s12 m6 l4">
-
-  <div class="card">
-    <div class="card-image waves-effect waves-block waves-light">
-      <a href="/detail/<%= trip.id %>"><img class="activator" src="https://i.imgsafe.org/b055aa2.jpg"></a>
-    </div>
-    <div class="card-content">
-      <p><a class="card-title grey-text text-darken-4" href="/detail/<%= trip.id %>"><%= trip.name %></a></p>
-    </div>
-
+  <div class="row">
+    <% @trips.each do |trip| %>
+      <div class="col s12 m6 l4">
+        <div class="card">
+          <div class="card-image waves-effect waves-block waves-light">
+            <a href="/detail/<%= trip.id %>"><img class="activator" src="https://i.imgsafe.org/b055aa2.jpg"></a>
+          </div>
+          <div class="card-content">
+            <p><a class="card-title grey-text text-darken-4" href="/detail/<%= trip.id %>"><%= trip.name %></a></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
 
-</div>
-
-  <% end %>
-
-</div>
-
-<div>
   <form action="/new" method="get">
     <button class="waves-effect blue-grey darken-3 btn-large">Add new trip</button>
   </form>
-</div>

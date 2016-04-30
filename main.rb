@@ -117,9 +117,6 @@ end
 
 get '/edit/:id' do
   @trip_edit = find_trip
-  @start_parsed = @trip_edit.trip_start.strftime("%d/%m/%Y")
-  @end_parsed = @trip_edit.trip_end.strftime("%d/%m/%Y")
-
   erb :edit
 end
 
