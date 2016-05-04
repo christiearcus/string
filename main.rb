@@ -4,7 +4,7 @@ require './helpers/helper'
 require './models/user'
 require './models/trip'
 require './models/expense'
-
+ 
 enable :sessions
 
 get '/' do
